@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.google.android.material.textfield.TextInputLayout
-
+/*Fragment register*/
 class RegisterFragment : Fragment() {
 
     private lateinit var ti_fullname : TextInputLayout
