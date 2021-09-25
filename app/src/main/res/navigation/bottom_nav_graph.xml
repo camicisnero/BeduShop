@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="org.bedu.bedushop.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_cart"
         android:name="org.bedu.bedushop.CartFragment"
@@ -20,4 +24,8 @@
         android:name="org.bedu.bedushop.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="org.bedu.bedushop.DetailFragment"
+        android:label="DetailFragment" />
 </navigation>
