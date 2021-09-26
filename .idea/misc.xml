@@ -3,11 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ruben/AndroidStudioProjects/bedu/BeduShop/app/src/main/res/layout/activity_home.xml" value="0.26875" />
-        <entry key="..\:/Users/ruben/AndroidStudioProjects/bedu/BeduShop/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
-        <entry key="..\:/Users/ruben/AndroidStudioProjects/bedu/BeduShop/app/src/main/res/layout/fragment_home.xml" value="0.26875" />
-        <entry key="..\:/Users/ruben/AndroidStudioProjects/bedu/BeduShop/app/src/main/res/layout/item_product.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/ruben/AndroidStudioProjects/bedu/BeduShop/app/src/main/res/menu/toolbar_menu.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/drawable/https_white.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.20520833333333333" />

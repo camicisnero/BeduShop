@@ -14,7 +14,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -99,9 +98,7 @@ class HomeFragment : Fragment() {
     private fun setUpRecyclerView(){
         recyclerProducts.setHasFixedSize(true)
         recyclerProducts.layoutManager = LinearLayoutManager(activity)
-        //seteando el Adapter
         val mAdapter = ProductAdapter(requireActivity(),getProducts())
-        //asignando el Adapter al RecyclerView
         recyclerProducts.adapter = mAdapter
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {

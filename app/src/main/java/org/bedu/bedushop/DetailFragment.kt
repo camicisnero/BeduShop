@@ -47,9 +47,9 @@ class DetailFragment : Fragment() {
             val title = arguments?.getString("TITLE");
             val price = arguments?.getFloat("PRICE");
             val description = arguments?.getString("DESCRIPTION");
-            val  valuation = arguments?.getFloat("VALUATION");
-            val  calification = arguments?.getInt("CALIFICATION");
-            val  image = arguments?.getString("IMAGE");
+            val valuation = arguments?.getFloat("VALUATION");
+            val calification = arguments?.getInt("CALIFICATION");
+            val image = arguments?.getString("IMAGE");
             val quota = arguments?.getFloat("QUOTA")
 
             txtNameProduct.text = title

@@ -1,6 +1,8 @@
 package org.bedu.bedushop
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +17,10 @@ import com.google.android.material.textfield.TextInputLayout
 
 class LogInFragment : Fragment() {
 
-    private lateinit var met_email : TextInputLayout
-    private lateinit var met_password : TextInputLayout
-    private lateinit var btn_login : Button
-    private lateinit var tv_register : TextView
+    private lateinit var metEmail : TextInputLayout
+    private lateinit var metPassword : TextInputLayout
+    private lateinit var btnLogin : Button
+    private lateinit var tvRegister : TextView
 
     private val args: LogInFragmentArgs by navArgs()
 
@@ -36,28 +38,50 @@ class LogInFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_log_in, container, false)
 
-        met_email = view.findViewById(R.id.met_email)
-        met_password = view.findViewById(R.id.met_password)
-        btn_login = view.findViewById(R.id.btn_login)
-        tv_register = view.findViewById(R.id.tv_register)
+        metEmail = view.findViewById(R.id.metEmail)
+        metPassword = view.findViewById(R.id.metPassword)
+        btnLogin = view.findViewById(R.id.btnLogin)
+        tvRegister = view.findViewById(R.id.tvRegister)
 
         val email = args.email
-        met_email.editText?.setText(email)
+        metEmail.editText?.setText(email)
 
-        btn_login.setOnClickListener {
-            if (met_email.editText?.text.toString().isBlank()){
-                met_email.error = getString(R.string.errorEmail)
-            } else if (met_password.editText?.text.toString().isBlank()){
-                met_password.error = getString(R.string.errorPassword)
+        btnLogin.setOnClickListener {
+            if (metEmail.editText?.text.toString().isBlank() && metPassword.editText?.text.toString().isBlank()){
+                metEmail.error = getString(R.string.errorEmail)
+                metPassword.error = getString(R.string.errorPassword)
+            } else if (metEmail.editText?.text.toString().isBlank()){
+                metEmail.error = getString(R.string.errorEmail)
+            } else if (metPassword.editText?.text.toString().isBlank()){
+                metPassword.error = getString(R.string.errorPassword)
             } else {
                 findNavController().navigate(R.id.action_logInFragment_to_homeActivity)
             }
         }
 
-        tv_register.setOnClickListener {
+        metEmail.editText?.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(metEmail.error?.isNotBlank() == true) metEmail.error = ""
+            }
+        })
+
+        metPassword.editText?.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(metPassword.error?.isNotBlank() == true) metPassword.error = ""
+            }
+        })
+
+        tvRegister.setOnClickListener {
             findNavController().navigate(R.id.action_logInFragment_to_registerFragment, null, options)
         }
 
