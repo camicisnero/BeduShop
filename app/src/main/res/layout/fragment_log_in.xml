@@ -65,12 +65,13 @@
         app:startIconDrawable="@drawable/https_white"
         app:startIconTint="@color/white"
         app:passwordToggleEnabled="true"
+        android:inputType="textPassword"
         app:passwordToggleTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPassword"
+
             android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
