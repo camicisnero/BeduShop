@@ -21,7 +21,7 @@ class DetailFragment : Fragment() {
     private lateinit var txtCalificationProduct:TextView
     private lateinit var imgProduct:ImageView
     private lateinit var txtPriceCuotaProducto:TextView
-    private lateinit var btnComprarProducto:Button
+    private lateinit var btnAddToCart:Button
 
     private val args: DetailFragmentArgs by navArgs()
 
