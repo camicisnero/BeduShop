@@ -3,7 +3,7 @@
 Proyecto Final para Academia IT de Bedu. La aplicación es un ecommerce en el que un usuario puede tanto registrarse como realizar log in. Permite seleccionar entre una lista de productos y navegar al detalle de cada uno.
 
 Tecnologias y librerías:
-* Interfaz realizada con Android Studio y Mterial Design
+* Interfaz realizada con Android Studio y Material Design
 * Lenguaje de programación: Kotlin
 * Picasso: liberia utilizada para la carga de imagenes de los productos
 * Gson: librería permite serializar objetos Java para convertirlos en un String, utilizada para la lectura de archivo JSON con los productos a mostrar.
@@ -38,7 +38,7 @@ _Herramientas utilizadas en el proyecto_
 * [Android Studio](https://developer.android.com/studio) - Entorno de desarrollo integrado (IDE) oficial para el desarrollo de apps para Android (basado en IntelliJ IDEA)
 * [Gradle](https://gradle.org/) - Paquete de herramientas de compilación avanzadas, para automatizar y administrar el proceso de compilación
 
-## ScreensShots
+## Screenshots
 
 _Pantala de Login_
 
@@ -62,6 +62,6 @@ _Detalle del producto_
 
 Integrantes:
 
-* **Ejemplo 1** 
+* **Camila Cisnero** 
 * **Francisco Godoy** 
 * **Mariana Paredes**
