@@ -40,7 +40,7 @@ _Herramientas utilizadas en el proyecto_
 
 ## Screenshots
 
-_Pantala de Login_
+_Pantalla de Login_
 
 ![login](https://user-images.githubusercontent.com/54612691/134978066-5ab7d9d6-3743-4a6e-a3c4-2a0d600e7236.PNG)
 
