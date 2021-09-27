@@ -32,8 +32,25 @@
         android:id="@+id/detailFragment"
         android:name="org.bedu.bedushop.DetailFragment"
         android:label="DetailFragment" >
-        <action
-            android:id="@+id/action_detailFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="float" />
+        <argument android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="valuation"
+            app:argType="float" />
+        <argument
+            android:name="calification"
+            app:argType="integer" />
+        <argument
+            android:name="quota"
+            app:argType="float" />
     </fragment>
 </navigation>

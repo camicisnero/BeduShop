@@ -24,19 +24,25 @@ class ProductAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: ProductAdapter.ViewHolder, position: Int) {
         val product = products[position]
-        val bundle = Bundle()
+        /*val bundle = Bundle()
         bundle.putString("TITLE",product.title)
         bundle.putFloat("PRICE",product.price)
         bundle.putString("DESCRIPTION",product.description)
         bundle.putString("IMAGE",product.image)
         bundle.putFloat("VALUATION",product.valuation)
         bundle.putInt("CALIFICATION", product.calification)
-        bundle.putFloat("QUOTA", getPriceQuota(product.price,6))
+        bundle.putFloat("QUOTA", getPriceQuota(product.price,6))*/
+
+        val action = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
+            product.title, product.price, product.description, product.image,
+            product.valuation, product.calification, getPriceQuota(product.price,6)
+        )
 
 
         holder.itemView.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_navigation_home_to_detailFragment,bundle)
+            Navigation.createNavigateOnClickListener(action)
         )
+
         holder.bind(product,context)
     }
 

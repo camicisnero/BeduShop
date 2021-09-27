@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
@@ -22,6 +23,7 @@ class DetailFragment : Fragment() {
     private lateinit var txtPriceCuotaProducto:TextView
     private lateinit var btnComprarProducto:Button
 
+    private val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +44,7 @@ class DetailFragment : Fragment() {
         txtPriceCuotaProducto = view.findViewById(R.id.tv_priceCuotas)
 
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let{
+        /*arguments?.let{
             //Without SafeArgs
             val title = arguments?.getString("TITLE");
             val price = arguments?.getFloat("PRICE");
@@ -59,6 +61,24 @@ class DetailFragment : Fragment() {
             txtCalificationProduct.text = calification.toString()
             Picasso.get().load(image).into(imgProduct)
             txtPriceCuotaProducto.text = quota.toString()
-        }
+        }*/
+
+        //With SafeArgs
+        val title = args.title
+        val price = args.price
+        val description = args.description
+        val valuation = args.valuation
+        val calification = args.calification
+        val image = args.image
+        val quota = args.quota
+
+        txtNameProduct.text = title
+        txtPriceProduct.text = price.toString()
+        txtDescriptionProducto.text = description
+        rtgValuationProduct.rating = valuation!!
+        txtCalificationProduct.text = calification.toString()
+        Picasso.get().load(image).into(imgProduct)
+        txtPriceCuotaProducto.text = "%.2f".format(quota)
+
     }
 }
