@@ -63,5 +63,5 @@ _Detalle del producto_
 Integrantes:
 
 * **Ejemplo 1** 
-* **Ejemplo 2** 
+* **Francisco Godoy** 
 * **Mariana Paredes**
