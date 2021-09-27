@@ -19,4 +19,19 @@
     <string name="title_home_fragment">Lista de productos</string>
     <string name="title_cart_fragment">Carrito de compras</string>
     <string name="title_profile_fragment">Perfil del Usuario</string>
+    <string name="state_detail_fragment">Nuevo</string>
+    <string name="title_detail_fragment">Consolo Xbox Series 10</string>
+    <string name="calification_detail_fragment">100</string>
+    <string name="price_detail_fragment">999.00</string>
+    <string name="simboloPesos">$</string>
+    <string name="cuotas_detail_fragment">En 6 cuotas sin interes de $</string>
+    <string name="priceCuotas_detail_fragment">100</string>
+    <string name="disponibilidad_detail_fragment">Disponible en tu domicilio</string>
+    <string name="entrega_detail_fragment">Entrega mañana</string>
+    <string name="btn_detail_fragment">AGREGAR AL CARRITO</string>
+    <string name="description_detail_fragment">Descripción</string>
+    <string name="descExample_detail_fragment">una descripcion del producto</string>
+    <string name="name_item_product">nombre del producto</string>
+    <string name="price_item_product">1999.21</string>
+    <string name="calification_item_product">412</string>
 </resources>

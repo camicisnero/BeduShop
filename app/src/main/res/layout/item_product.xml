@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="nombre del producto"
+            android:text="@string/name_item_product"
             cardView:layout_constraintStart_toStartOf="@+id/guideline7"
             cardView:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="$"
+            android:text="@string/simboloPesos"
             android:textStyle="bold"
             cardView:layout_constraintStart_toStartOf="@+id/guideline7"
             cardView:layout_constraintTop_toBottomOf="@+id/tv_title" />
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
-            android:text="1999.21"
+            android:text="@string/price_item_product"
             android:textStyle="bold"
             cardView:layout_constraintStart_toEndOf="@+id/tv_simboloPesos"
             cardView:layout_constraintTop_toBottomOf="@+id/tv_title" />
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
-            android:text="412"
+            android:text="@string/calification_item_product"
             android:textSize="10dp"
             cardView:layout_constraintStart_toEndOf="@+id/rtg_valuation"
             cardView:layout_constraintTop_toBottomOf="@+id/tv_price" />
