@@ -41,10 +41,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.item_search->{
-                Toast.makeText(this,"La busqueda esta desabilitada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,getString(R.string.item_search_toast), Toast.LENGTH_SHORT).show()
             }
             R.id.item_help->{
-                val url:String = "https://www.bedu.org"
+                val url:String = getString(R.string.item_help_link)
                 openWebPage(url)
             }
         }
