@@ -36,4 +36,5 @@
     <string name="calification_item_product">412</string>
     <string name="item_search_toast">La busqueda esta desabilitada</string>
     <string name="item_help_link">https://www.bedu.org</string>
+    <string name="textAddBtn">Se ha añadido al carrito</string>
 </resources>
