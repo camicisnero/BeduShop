@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class ProductAdapter(private val context: Context,
-                     private val products:MutableList<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+                     private val products:List<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.ViewHolder {
         val view = LayoutInflater
@@ -55,7 +55,7 @@ class ProductAdapter(private val context: Context,
         fun bind(product: Product, context: Context){
             title.text = product.title
             price.text = (product.price).toString()
-            valuation.rating = product.valuation
+            valuation.rating = product.valuation.toFloat()
             calification.text = product.calification.toString()
             Picasso.get().load(product.image).into(image)
         }
