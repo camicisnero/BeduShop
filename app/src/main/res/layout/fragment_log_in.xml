@@ -29,18 +29,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/metEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Bedu.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:hint="@string/email"
         app:errorEnabled="true"
         android:focusableInTouchMode="true"
-        android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white"
         app:startIconDrawable="@drawable/ic_person"
-        app:startIconTint="@color/white"
         android:layout_marginBottom="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -53,17 +49,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/metPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Bedu.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:hint="@string/password"
         app:errorEnabled="true"
-        app:boxStrokeColor="@color/white"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
         app:startIconDrawable="@drawable/https_white"
-        app:startIconTint="@color/white"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/white">
 

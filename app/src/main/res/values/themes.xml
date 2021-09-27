@@ -19,4 +19,11 @@
         <item name="backgroundTint">?attr/colorAccent</item>
     </style>
 
+    <style name="Bedu.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="startIconTint">@color/white</item>
+    </style>
+
 </resources>
