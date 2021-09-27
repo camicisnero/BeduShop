@@ -46,7 +46,9 @@ class LogInFragment : Fragment() {
         tvRegister = view.findViewById(R.id.tvRegister)
 
         val email = args.email
+        val password = args.password
         metEmail.editText?.setText(email)
+        metPassword.editText?.setText(password)
 
         btnLogin.setOnClickListener {
             if (metEmail.editText?.text.toString().isBlank() && metPassword.editText?.text.toString().isBlank()){

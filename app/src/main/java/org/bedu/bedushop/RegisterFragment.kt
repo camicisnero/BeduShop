@@ -58,7 +58,7 @@ class RegisterFragment : Fragment() {
             } else if (regPassword.editText?.text.toString().isBlank()){
                 regPassword.error = getString(R.string.errorPassword)
             } else {
-                val action = RegisterFragmentDirections.actionRegisterFragmentToLogInFragment(regEmail.editText?.text.toString())
+                val action = RegisterFragmentDirections.actionRegisterFragmentToLogInFragment(regEmail.editText?.text.toString(), regPassword.editText?.text.toString())
                 findNavController().navigate(action, options)
             }
         }
