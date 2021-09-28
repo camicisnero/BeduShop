@@ -14,6 +14,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navOptions
 import com.google.android.material.textfield.TextInputLayout
+import android.text.TextUtils
+import android.util.Patterns
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class LogInFragment : Fragment() {
 
@@ -51,12 +56,12 @@ class LogInFragment : Fragment() {
         metPassword.editText?.setText(password)
 
         btnLogin.setOnClickListener {
-            if (metEmail.editText?.text.toString().isBlank() && metPassword.editText?.text.toString().isBlank()){
+            if (!isValidEmail(metEmail.editText?.text.toString()) && !isValidPassword(metPassword.editText?.text.toString())){
                 metEmail.error = getString(R.string.errorEmail)
                 metPassword.error = getString(R.string.errorPassword)
-            } else if (metEmail.editText?.text.toString().isBlank()){
+            } else if (!isValidEmail(metEmail.editText?.text.toString())){
                 metEmail.error = getString(R.string.errorEmail)
-            } else if (metPassword.editText?.text.toString().isBlank()){
+            } else if (!isValidPassword(metPassword.editText?.text.toString())){
                 metPassword.error = getString(R.string.errorPassword)
             } else {
                 findNavController().navigate(R.id.action_logInFragment_to_homeActivity)
@@ -88,6 +93,19 @@ class LogInFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun isValidEmail(target: CharSequence): Boolean {
+        return target.isNotBlank() && Patterns.EMAIL_ADDRESS.matcher(target).matches()
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val pattern: Pattern
+        val matcher: Matcher
+        val PASSWORD_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_-])(?=\\S+$).{8,}$"
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        matcher = pattern.matcher(password)
+        return matcher.matches() && password.isNotBlank()
     }
 
 }
