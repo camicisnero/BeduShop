@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/carView"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    cardView:cardCornerRadius="8dp"
+    cardView:cardElevation="8dp"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            cardView:layout_constraintGuide_begin="7dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            cardView:layout_constraintGuide_begin="7dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            cardView:layout_constraintGuide_begin="93dp" />
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/name_item_product"
+            android:maxLines="2"
+            android:ellipsize="end"
+            cardView:layout_constraintEnd_toStartOf="@+id/guideline4"
+            cardView:layout_constraintStart_toStartOf="@+id/guideline7"
+            cardView:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <TextView
+            android:id="@+id/tv_simboloPesos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/simboloPesos"
+            android:textStyle="bold"
+            cardView:layout_constraintStart_toStartOf="@+id/guideline7"
+            cardView:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/price_item_product"
+            android:textStyle="bold"
+            cardView:layout_constraintStart_toEndOf="@+id/tv_simboloPesos"
+            cardView:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="64dp"
+            android:layout_height="98dp"
+            cardView:layout_constraintBottom_toTopOf="@+id/guideline9"
+            cardView:layout_constraintEnd_toStartOf="@+id/guideline7"
+            cardView:layout_constraintHorizontal_bias="0.521"
+            cardView:layout_constraintStart_toStartOf="@+id/guideline5"
+            cardView:layout_constraintTop_toTopOf="@+id/guideline2"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            cardView:layout_constraintGuide_begin="104dp" />
+
+        <RatingBar
+            android:id="@+id/rtg_valuation"
+            style="@android:style/Widget.Material.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:numStars="5"
+            android:rating="0"
+            cardView:layout_constraintStart_toStartOf="@+id/guideline7"
+            cardView:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+        <TextView
+            android:id="@+id/tv_calification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/calification_item_product"
+            android:textSize="10dp"
+            cardView:layout_constraintStart_toEndOf="@+id/rtg_valuation"
+            cardView:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            cardView:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
