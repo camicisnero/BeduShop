@@ -12,45 +12,35 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(private val context: Context,
-                     private val products:List<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_product,parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ProductAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
-        /*val bundle = Bundle()
-        bundle.putString("TITLE",product.title)
-        bundle.putFloat("PRICE",product.price)
-        bundle.putString("DESCRIPTION",product.description)
-        bundle.putString("IMAGE",product.image)
-        bundle.putFloat("VALUATION",product.valuation)
-        bundle.putInt("CALIFICATION", product.calification)
-        bundle.putFloat("QUOTA", getPriceQuota(product.price,6))*/
 
         val action = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
             product.title, product.price, product.description, product.image,
             product.valuation, product.calification, getPriceQuota(product.price,6)
         )
 
-
         holder.itemView.setOnClickListener(
             Navigation.createNavigateOnClickListener(action)
         )
 
-        holder.bind(product,context)
+        holder.bind(product)
     }
 
     override fun getItemCount(): Int {
         return products.size
     }
 
-    class ViewHolder(val view: View):RecyclerView.ViewHolder(view){
+    class ViewHolder(view: View):RecyclerView.ViewHolder(view){
         private var title = view.findViewById<TextView>(R.id.tv_title)
         private var price = view.findViewById<TextView>(R.id.tv_price)
         private var valuation = view.findViewById<RatingBar>(R.id.rtg_valuation)
@@ -58,10 +48,10 @@ class ProductAdapter(private val context: Context,
         private var image = view.findViewById<ImageView>(R.id.img_product)
 
 
-        fun bind(product: Product, context: Context){
+        fun bind(product: Product){
             title.text = product.title
             price.text = (product.price).toString()
-            valuation.rating = product.valuation.toFloat()
+            valuation.rating = product.valuation
             calification.text = product.calification.toString()
             Picasso.get().load(product.image).into(image)
         }

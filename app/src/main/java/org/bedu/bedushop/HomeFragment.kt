@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
     private fun setUpRecyclerView(){
         recyclerProducts.setHasFixedSize(true)
         recyclerProducts.layoutManager = LinearLayoutManager(activity)
-        val mAdapter = ProductAdapter(requireActivity(),getProducts(requireActivity()))
+        val mAdapter = ProductAdapter(getProducts(requireActivity()))
         recyclerProducts.adapter = mAdapter
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
