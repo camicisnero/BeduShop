@@ -51,10 +51,10 @@ class LogInFragment : Fragment() {
         metPassword.editText?.setText(password)
 
         btnLogin.setOnClickListener {
-            if (metEmail.editText?.text.toString().isBlank() && metPassword.editText?.text.toString().isBlank()){
+            if (validateEmail(metEmail) && metPassword.editText?.text.toString().isBlank()){
                 metEmail.error = getString(R.string.errorEmail)
                 metPassword.error = getString(R.string.errorPassword)
-            } else if (metEmail.editText?.text.toString().isBlank()){
+            } else if (validateEmail(metEmail)){
                 metEmail.error = getString(R.string.errorEmail)
             } else if (metPassword.editText?.text.toString().isBlank()){
                 metPassword.error = getString(R.string.errorPassword)
@@ -88,6 +88,14 @@ class LogInFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun validateEmail(email: TextInputLayout): Boolean {
+        if (email.editText?.text.toString().isBlank()) {
+            return true
+        } else {
+            return !android.util.Patterns.EMAIL_ADDRESS.matcher(email.editText?.text.toString()).matches();
+        }
     }
 
 }
