@@ -20,7 +20,7 @@ _Herramientas utilizadas en el proyecto_
 * [Android Studio](https://developer.android.com/studio) - Entorno de desarrollo integrado (IDE) oficial para el desarrollo de apps para Android (basado en IntelliJ IDEA)
 * [Gradle](https://gradle.org/) - Paquete de herramientas de compilación avanzadas, para automatizar y administrar el proceso de compilación
 
-## Screenshots
+## Screenshots 🚀
 
 _Pantalla de Login_
 
