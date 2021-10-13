@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="100dp">
 
 
     <ImageView
         android:id="@+id/image1"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="20dp"
         android:src="@drawable/ic_location"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        android:contentDescription="@string/iconOption"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
-
-    <TextView
-        android:id="@+id/optionTitle"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:gravity="center_vertical"
-        android:text="Titulo"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toStartOf="@+id/image2"
-        app:layout_constraintHorizontal_bias="0.201"
-        app:layout_constraintStart_toEndOf="@+id/image1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image2"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="32dp"
         android:src="@drawable/ic_arrow"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/iconNext"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/optionTitle"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center_vertical"
+        android:text="@string/titleOption"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintStart_toEndOf="@+id/image1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.507" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -63,6 +59,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="6dp" />
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

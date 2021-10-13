@@ -9,7 +9,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="20dp"
     tools:context=".ProfileFragment">
 
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userAvatar"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/username"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="18dp"/>
+        android:textSize="18sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProfile"

@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_profile.*
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -22,6 +24,29 @@ class ProfileFragment : Fragment() {
     private lateinit var userAvatar : ShapeableImageView
     private lateinit var username : TextView
     private lateinit var userEmail : TextView
+
+    private val listProfile = listOf(
+        ItemsProfile(
+            R.string.optionDirections,
+            R.drawable.ic_location_on
+        ),
+        ItemsProfile(
+            R.string.optionMethodPayment,
+            R.drawable.ic_credit_card
+        ),
+        ItemsProfile(
+            R.string.optionDelivery,
+            R.drawable.ic_restore
+        ),
+        ItemsProfile(
+            R.string.optionNotifications,
+            R.drawable.ic_notifications
+        ),
+        ItemsProfile(
+            R.string.optionChangePassword,
+            R.drawable.ic_lock
+        )
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,4 +103,14 @@ class ProfileFragment : Fragment() {
             })
     }
 
+    private fun setUpRecyclerVie(){
+        recyclerProfile.setHasFixedSize(true)
+        recyclerProfile.layoutManager = LinearLayoutManager(activity)
+        val mAdapter = ProfileAdapter(listProfile)
+        recyclerProfile.adapter = mAdapter
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setUpRecyclerVie()
+    }
 }

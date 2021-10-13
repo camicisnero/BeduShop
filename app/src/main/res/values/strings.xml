@@ -40,4 +40,13 @@
     <string name="searchUserDataError">Error al buscar usuario</string>
     <string name="snackbarAction">ENTENDIDO</string>
     <string name="userNotFound">Usuario no encontrado</string>
+    <!--  Profile  -->
+    <string name="optionDirections">Mis direcciones</string>
+    <string name="optionMethodPayment">Método de Pago</string>
+    <string name="optionDelivery">Pedidos</string>
+    <string name="optionNotifications">Notificaciones</string>
+    <string name="optionChangePassword">Cambiar Contraseña</string>
+    <string name="iconOption">icono de la opcion</string>
+    <string name="iconNext">icono para avanzar</string>
+    <string name="titleOption">Titulo</string>
 </resources>
