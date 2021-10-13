@@ -3,19 +3,25 @@ package org.bedu.bedushop
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navOptions
 import com.google.android.material.textfield.TextInputLayout
-import android.text.TextUtils
 import android.util.Patterns
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+import okhttp3.*
+import org.json.JSONObject
+import org.json.JSONStringer
+import java.io.IOException
+import java.lang.Exception
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -28,6 +34,8 @@ class LogInFragment : Fragment() {
     private lateinit var tvRegister : TextView
 
     private val args: LogInFragmentArgs by navArgs()
+
+    private val url = "https://reqres.in/api/login"
 
     val options = navOptions {
         anim {
@@ -56,15 +64,16 @@ class LogInFragment : Fragment() {
         metPassword.editText?.setText(password)
 
         btnLogin.setOnClickListener {
-            if (!isValidEmail(metEmail.editText?.text.toString()) && !isValidPassword(metPassword.editText?.text.toString())){
-                metEmail.error = getString(R.string.errorEmail)
-                metPassword.error = getString(R.string.errorPassword)
+            if (!metEmail.editText?.text.toString().isNotBlank() || !metPassword.editText?.text.toString().isNotBlank() ){
+                Snackbar.make(view, "Te falta llenar algun campo", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("ENTENDIDO") {}
+                    .show()
             } else if (!isValidEmail(metEmail.editText?.text.toString())){
                 metEmail.error = getString(R.string.errorEmail)
             } else if (!isValidPassword(metPassword.editText?.text.toString())){
                 metPassword.error = getString(R.string.errorPassword)
             } else {
-                findNavController().navigate(R.id.action_logInFragment_to_homeActivity)
+                loginRequest(metEmail.editText?.text.toString(), metPassword.editText?.text.toString(), view)
             }
         }
 
@@ -96,7 +105,7 @@ class LogInFragment : Fragment() {
     }
 
     private fun isValidEmail(target: CharSequence): Boolean {
-        return target.isNotBlank() && Patterns.EMAIL_ADDRESS.matcher(target).matches()
+        return Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
 
     private fun isValidPassword(password: String): Boolean {
@@ -105,7 +114,49 @@ class LogInFragment : Fragment() {
         val PASSWORD_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_-])(?=\\S+$).{8,}$"
         pattern = Pattern.compile(PASSWORD_PATTERN)
         matcher = pattern.matcher(password)
-        return matcher.matches() && password.isNotBlank()
+        return matcher.matches()
+    }
+
+    private fun loginRequest(email: String, password: String, view: View) {
+        val okHttpClient = OkHttpClient()
+
+        val formBody = FormBody.Builder()
+            .add("email", email)
+            .add("password", password)
+            .build()
+
+        val request = Request.Builder()
+            .url(url)
+            .post(formBody)
+            .build()
+
+        val clientBuilder = okHttpClient.newBuilder()
+        clientBuilder.build()
+            .newCall(request)
+            .enqueue(object: Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Toast.makeText(context, "ERROR REQUEST", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val body = response.body?.string()
+                    try {
+                        val json = JSONObject(body)
+                        if(response.isSuccessful) {
+                            findNavController().navigate(R.id.action_logInFragment_to_homeActivity)
+                        } else {
+                            Snackbar.make(view, R.string.userNotFound, Snackbar.LENGTH_INDEFINITE)
+                                .setAction(R.string.snackbarAction) {}
+                                .show()
+                        }
+
+                    } catch (e: Exception){
+                        e.printStackTrace()
+                    }
+
+                }
+
+            })
     }
 
 }

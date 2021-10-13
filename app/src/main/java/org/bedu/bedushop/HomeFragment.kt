@@ -14,6 +14,8 @@ import com.google.gson.reflect.TypeToken
 
 class HomeFragment : Fragment() {
 
+    private val url = "https://fakestoreapi.com/products"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,12 +34,11 @@ class HomeFragment : Fragment() {
         return jsonString
     }
 
-    fun getProducts(context: Context): List<Product> {
+    private fun getProducts(context: Context): List<Product> {
         val jsonString = getJsonDataFromAsset(context)
         val listProductType = object : TypeToken<List<Product>>() {}.type
         return Gson().fromJson(jsonString, listProductType)
     }
-
 
     private fun setUpRecyclerView(){
         recyclerProducts.setHasFixedSize(true)
