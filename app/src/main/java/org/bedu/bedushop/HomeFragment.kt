@@ -6,11 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.io.IOException
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import okhttp3.*
+import org.json.JSONObject
+import java.lang.Exception
 
 class HomeFragment : Fragment() {
 
@@ -23,28 +29,44 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    private fun getJsonDataFromAsset(context: Context, fileName: String = "products.json"): String? {
-        val jsonString: String
-        try {
-            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
-        } catch (ioException: IOException) {
-            ioException.printStackTrace()
-            return null
-        }
-        return jsonString
-    }
+    private fun getProducts(context: Context) {
+        val okHttpClient = OkHttpClient()
 
-    private fun getProducts(context: Context): List<Product> {
-        val jsonString = getJsonDataFromAsset(context)
-        val listProductType = object : TypeToken<List<Product>>() {}.type
-        return Gson().fromJson(jsonString, listProductType)
+        val request = Request.Builder()
+            .url(url)
+            .build()
+
+        val clientBuilder = okHttpClient.newBuilder()
+        clientBuilder.build()
+            .newCall(request)
+            .enqueue(object: Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Toast.makeText(context, "ERROR REQUEST", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val body = response.body?.string()
+                    try {
+                        activity?.runOnUiThread {
+                            if(response.isSuccessful) {
+                                val listProductType = object : TypeToken<List<Product>>() {}.type
+                                val mAdapter = ProductAdapter(Gson().fromJson(body, listProductType))
+                                recyclerProducts.adapter = mAdapter
+                            }
+                        }
+
+                    } catch (e: Exception){
+                        e.printStackTrace()
+                    }
+                }
+            })
     }
 
     private fun setUpRecyclerView(){
         recyclerProducts.setHasFixedSize(true)
         recyclerProducts.layoutManager = LinearLayoutManager(activity)
-        val mAdapter = ProductAdapter(getProducts(requireActivity()))
-        recyclerProducts.adapter = mAdapter
+        getProducts(requireActivity())
+
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
