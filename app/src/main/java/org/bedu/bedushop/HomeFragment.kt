@@ -52,6 +52,8 @@ class HomeFragment : Fragment() {
                                 val listProductType = object : TypeToken<List<Product>>() {}.type
                                 val mAdapter = ProductAdapter(Gson().fromJson(body, listProductType))
                                 recyclerProducts.adapter = mAdapter
+                                recyclerProducts.visibility = View.VISIBLE
+                                progressBar.visibility = View.INVISIBLE
                             }
                         }
 

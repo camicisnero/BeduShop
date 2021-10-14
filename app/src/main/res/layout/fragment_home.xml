@@ -6,10 +6,18 @@
     android:layout_gravity="center"
     tools:context=".HomeFragment">
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProducts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_product"/>
+        tools:listitem="@layout/item_product"
+        android:visibility="invisible" />
 
 </FrameLayout>
