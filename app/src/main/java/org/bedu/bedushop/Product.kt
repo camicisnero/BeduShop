@@ -5,8 +5,11 @@ data class Product(
     val title:String,
     val price:Float,
     val description:String,
-    val valuation:Float,
-    val calification:Int,
+    val rating: Rating,
     val category:String,
     val image:String
+)
+class Rating(
+    val rate:Float,
+    val count:Int
 )

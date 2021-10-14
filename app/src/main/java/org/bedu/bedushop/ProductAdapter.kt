@@ -26,7 +26,7 @@ class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<P
 
         val action = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
             product.title, product.price, product.description, product.image,
-            product.valuation, product.calification, getPriceQuota(product.price,6)
+            product.rating.rate, product.rating.count, getPriceQuota(product.price,6)
         )
 
         holder.itemView.setOnClickListener(
@@ -51,8 +51,8 @@ class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<P
         fun bind(product: Product){
             title.text = product.title
             price.text = (product.price).toString()
-            valuation.rating = product.valuation
-            calification.text = product.calification.toString()
+            valuation.rating = product.rating.rate
+            calification.text = product.rating.count.toString()
             Picasso.get().load(product.image).into(image)
         }
     }
