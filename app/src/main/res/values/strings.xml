@@ -52,6 +52,6 @@
     <string name="addresFragmentMainText">Agregar dirección</string>
     <string name="addresFragmentSubText">Ubicación Actual</string>
     <string name="addresFragmentButtonText">Actualizar</string>
-    <string name="example_dir">Calle Altura, Localidad, 03660 Ciudad de México, CDMX, México Ciudad de México</string>
+    <string name="example_dir">Actualice para mostrar su ubicación</string>
     <string name="contentDescAddressFrag">close</string>
 </resources>
