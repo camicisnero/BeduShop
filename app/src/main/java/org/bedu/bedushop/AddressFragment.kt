@@ -80,14 +80,13 @@ class AddressFragment: BottomSheetDialogFragment(){
         }
 
         btnUpdateLocation.setOnClickListener {
-
-            try {
                 getLocation()
                 val geocoder = Geocoder(requireContext(), Locale.getDefault())
 
                 Thread{
                     Runnable {
                         Log.e("GPS", "Enter thread")
+                        try {
                         val addresses = geocoder.getFromLocation(latitude, longitude, 1)
                         if (addresses.size > 0){
                             val addres = addresses[0]
@@ -97,13 +96,13 @@ class AddressFragment: BottomSheetDialogFragment(){
                         } else {
                             activity?.runOnUiThread {showToast("Ubicación no encontrada, intente nuevamente")}
                         }
+
+                        }catch (e: Exception){
+                            e.printStackTrace()
+                            showToast("Ups... Algo salió mal")
+                        }
                     }.run()
                 }.start()
-
-            }catch (e: Exception){
-                e.printStackTrace()
-                showToast("Ups... Algo salió mal")
-            }
 
         }
 
