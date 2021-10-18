@@ -7,12 +7,34 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ProfileAdapter(private val listProfile:List<ItemsProfile>): RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+class ProfileAdapter(private val listProfile:List<ItemsProfile>,
+                    private val clicklistener: (Int) -> Unit): RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+
+    class ViewHolder(view: View, clickAtPosition: (Int)->Unit): RecyclerView.ViewHolder(view){
+        private var title = view.findViewById<TextView>(R.id.optionTitle)
+        private var image = view.findViewById<ImageView>(R.id.image1)
+
+        init {
+            itemView.setOnClickListener {
+                clickAtPosition(adapterPosition)
+            }
+        }
+
+        fun bind(item: ItemsProfile){
+            title.setText(item.title)
+            image.setImageResource(item.image)
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater
+        val view = ViewHolder(LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.item_option_profile,parent,false)
-        return ViewHolder(view)
+            .inflate(R.layout.item_option_profile,parent,false),
+            ){
+            clicklistener(listProfile[it].title)
+        }
+
+        return view
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -22,16 +44,6 @@ class ProfileAdapter(private val listProfile:List<ItemsProfile>): RecyclerView.A
 
     override fun getItemCount(): Int {
         return listProfile.size
-    }
-
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        private var title = view.findViewById<TextView>(R.id.optionTitle)
-        private var image = view.findViewById<ImageView>(R.id.image1)
-
-        fun bind(item: ItemsProfile){
-            title.setText(item.title)
-            image.setImageResource(item.image)
-        }
     }
 
 }

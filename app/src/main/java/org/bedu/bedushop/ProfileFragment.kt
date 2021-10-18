@@ -19,6 +19,8 @@ import kotlin.random.Random
 
 class ProfileFragment : Fragment() {
 
+    private val addressFragment = AddressFragment()
+
     private val baseUrl = "https://reqres.in/api/users/"
 
     private lateinit var userAvatar : ShapeableImageView
@@ -29,7 +31,7 @@ class ProfileFragment : Fragment() {
         ItemsProfile(
             R.string.optionDirections,
             R.drawable.ic_location_on
-        ),
+        ) ,
         ItemsProfile(
             R.string.optionMethodPayment,
             R.drawable.ic_credit_card
@@ -48,6 +50,8 @@ class ProfileFragment : Fragment() {
         )
     )
 
+    private lateinit var listener: (Int) -> Unit
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,6 +66,14 @@ class ProfileFragment : Fragment() {
         dataRequest(view)
 
         return view
+    }
+
+    private fun setListener(){
+        listener = {
+            if (it == R.string.optionDirections) {
+                addressFragment.show(parentFragmentManager, "fragment")
+            }
+        }
     }
 
     private fun dataRequest(view: View) {
@@ -103,14 +115,16 @@ class ProfileFragment : Fragment() {
             })
     }
 
-    private fun setUpRecyclerVie(){
+    private fun setUpRecyclerView(){
         recyclerProfile.setHasFixedSize(true)
         recyclerProfile.layoutManager = LinearLayoutManager(activity)
-        val mAdapter = ProfileAdapter(listProfile)
-        recyclerProfile.adapter = mAdapter
+        setListener()
+        val mAdapter = ProfileAdapter(listProfile, listener)
+        recyclerProfile?.adapter = mAdapter
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setUpRecyclerVie()
+        setUpRecyclerView()
     }
 }

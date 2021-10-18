@@ -41,7 +41,9 @@ class HomeFragment : Fragment() {
             .newCall(request)
             .enqueue(object: Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Toast.makeText(context, "ERROR REQUEST", Toast.LENGTH_SHORT).show()
+                    activity?.runOnUiThread{
+                        Toast.makeText(context, "ERROR REQUEST", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onResponse(call: Call, response: Response) {
