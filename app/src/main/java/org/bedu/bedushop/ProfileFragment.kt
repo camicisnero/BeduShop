@@ -116,8 +116,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setUpRecyclerView(){
-        recyclerProfile.setHasFixedSize(true)
-        recyclerProfile.layoutManager = LinearLayoutManager(activity)
+        recyclerProfile?.setHasFixedSize(true)
+        recyclerProfile?.layoutManager = LinearLayoutManager(activity)
         setListener()
         val mAdapter = ProfileAdapter(listProfile, listener)
         recyclerProfile?.adapter = mAdapter
