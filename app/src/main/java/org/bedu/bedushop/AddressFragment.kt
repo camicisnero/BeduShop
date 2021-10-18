@@ -3,10 +3,12 @@ package org.bedu.bedushop
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -83,7 +85,7 @@ class AddressFragment: BottomSheetDialogFragment(){
 
                 if (addresses.size > 0){
                     val addres = addresses[0]
-                    tvActualLocation.text = addres.getAddressLine(0).toString() + addres.locality
+                    tvActualLocation.text = addres.getAddressLine(0).toString() + " " + addres.locality
                 }
 
             }catch (e: Exception){
@@ -111,12 +113,21 @@ class AddressFragment: BottomSheetDialogFragment(){
                     }
 
                 }
+            } else {
+                goToTurnLocation()
             }
         } else{
             //si no se tiene permiso, pedirlo
             requestPermissions()
         }
     }
+
+    private fun goToTurnLocation(){
+        Toast.makeText(requireActivity(), "Debes prender el servicio de GPS", Toast.LENGTH_LONG).show()
+        val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+        startActivity(intent)
+    }
+
 
     private fun checkGranted(permission: String): Boolean{
         return ActivityCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED
