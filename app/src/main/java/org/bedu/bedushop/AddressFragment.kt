@@ -11,6 +11,7 @@ import android.location.Geocoder
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
-import kotlinx.coroutines.NonCancellable.cancel
 import java.util.Locale
 
 class AddressFragment: BottomSheetDialogFragment(){
@@ -30,7 +30,7 @@ class AddressFragment: BottomSheetDialogFragment(){
     }
 
     //Obeto que obtiene la localización
-    lateinit var mFusedLocationClient: FusedLocationProviderClient
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
 
     /*private var latitude = 19.3758498
     private var longitude = -99.1454907*/
@@ -48,6 +48,7 @@ class AddressFragment: BottomSheetDialogFragment(){
     )
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -83,21 +84,34 @@ class AddressFragment: BottomSheetDialogFragment(){
             try {
                 getLocation()
                 val geocoder = Geocoder(requireContext(), Locale.getDefault())
-                val addresses = geocoder.getFromLocation(latitude, longitude, 1)
 
-                if (addresses.size > 0){
-                    val addres = addresses[0]
-                    tvActualLocation.text = addres.getAddressLine(0).toString() + " " + addres.locality
-                }
+                Thread{
+                    Runnable {
+                        Log.e("GPS", "Enter thread")
+                        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+                        if (addresses.size > 0){
+                            val addres = addresses[0]
+                            activity?.runOnUiThread {
+                                tvActualLocation.text = "${addres.getAddressLine(0)} ${addres.locality}"
+                            }
+                        } else {
+                            activity?.runOnUiThread {showToast("Ubicación no encontrada, intente nuevamente")}
+                        }
+                    }.run()
+                }.start()
 
             }catch (e: Exception){
                 e.printStackTrace()
-                Toast.makeText(requireContext(), "Ups... Algo salió mal", Toast.LENGTH_SHORT).show()
+                showToast("Ups... Algo salió mal")
             }
 
         }
 
         return view
+    }
+
+    private fun showToast(msj: String) {
+        Toast.makeText(requireContext(), msj, Toast.LENGTH_SHORT).show()
     }
 
     @SuppressLint("MissingPermission")
@@ -107,9 +121,9 @@ class AddressFragment: BottomSheetDialogFragment(){
 
                 mFusedLocationClient.lastLocation.addOnSuccessListener(requireActivity()) { location ->
 
-                    if (location?.latitude != null && location?.longitude != null) {
-                        latitude = location?.latitude
-                        longitude = location?.longitude
+                    if (location?.latitude != null) {
+                        latitude = location.latitude
+                        longitude = location.longitude
                     } else {
                         Toast.makeText(requireContext(), "No se encontró dirección", Toast.LENGTH_SHORT).show()
                     }
@@ -120,11 +134,11 @@ class AddressFragment: BottomSheetDialogFragment(){
                     val builder = AlertDialog.Builder(it)
                     builder.apply {
                         setPositiveButton(R.string.ok,
-                            DialogInterface.OnClickListener { dialog, id ->
+                            DialogInterface.OnClickListener { _, _ ->
                                 goToTurnLocation()
                             })
                         setNegativeButton(R.string.cancel,
-                            DialogInterface.OnClickListener { dialog, id ->
+                            DialogInterface.OnClickListener { dialog, _ ->
                                 dialog.dismiss()
                             })
                     }
