@@ -2,7 +2,9 @@ package org.bedu.bedushop
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -14,11 +16,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.getSystemService
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.NonCancellable.cancel
 import java.util.Locale
 
 class AddressFragment: BottomSheetDialogFragment(){
@@ -114,7 +116,27 @@ class AddressFragment: BottomSheetDialogFragment(){
 
                 }
             } else {
-                goToTurnLocation()
+                val alertDialog: AlertDialog? = activity?.let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setPositiveButton(R.string.ok,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                goToTurnLocation()
+                            })
+                        setNegativeButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialog, id ->
+                                dialog.dismiss()
+                            })
+                    }
+                    // Set other dialog properties
+                    builder?.setMessage(R.string.dialog_message)
+                    //.setTitle(R.string.dialog_title)
+
+                    // Create the AlertDialog
+                    builder.create()
+                }
+
+                alertDialog?.show()
             }
         } else{
             //si no se tiene permiso, pedirlo

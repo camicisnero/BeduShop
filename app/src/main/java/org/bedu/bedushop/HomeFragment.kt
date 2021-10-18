@@ -53,9 +53,9 @@ class HomeFragment : Fragment() {
                             if(response.isSuccessful) {
                                 val listProductType = object : TypeToken<List<Product>>() {}.type
                                 val mAdapter = ProductAdapter(Gson().fromJson(body, listProductType))
-                                recyclerProducts.adapter = mAdapter
-                                recyclerProducts.visibility = View.VISIBLE
-                                progressBar.visibility = View.INVISIBLE
+                                recyclerProducts?.adapter = mAdapter
+                                recyclerProducts?.visibility = View.VISIBLE
+                                progressBar?.visibility = View.INVISIBLE
                             }
                         }
 
@@ -67,8 +67,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpRecyclerView(){
-        recyclerProducts.setHasFixedSize(true)
-        recyclerProducts.layoutManager = LinearLayoutManager(activity)
+        recyclerProducts?.setHasFixedSize(true)
+        recyclerProducts?.layoutManager = LinearLayoutManager(activity)
         getProducts(requireActivity())
 
     }
