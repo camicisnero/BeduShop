@@ -1,5 +1,6 @@
 package org.bedu.bedushop.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.bedu.bedushop.Fragments.CartFragment
 import org.bedu.bedushop.R
 
 class HomeActivity : AppCompatActivity() {
@@ -56,5 +58,11 @@ class HomeActivity : AppCompatActivity() {
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val preferences = getSharedPreferences(CartFragment.PREFS_NAME, Context.MODE_PRIVATE)
+        preferences.edit().clear().commit()
     }
 }

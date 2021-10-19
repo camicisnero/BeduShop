@@ -22,7 +22,12 @@
         android:id="@+id/navigation_cart"
         android:name="org.bedu.bedushop.Fragments.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <argument
+            android:name="productId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="org.bedu.bedushop.Fragments.ProfileFragment"
@@ -52,5 +57,11 @@
         <argument
             android:name="quota"
             app:argType="float" />
+        <action
+            android:id="@+id/action_detailFragment_to_navigation_cart"
+            app:destination="@id/navigation_cart" />
+        <argument
+            android:name="productId"
+            app:argType="integer" />
     </fragment>
 </navigation>

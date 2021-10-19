@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail.*
@@ -64,7 +65,9 @@ class DetailFragment : Fragment() {
         txtPriceCuotaProducto.text = "%.2f".format(quota)
 
         btn_add.setOnClickListener {
-            Toast.makeText(activity, getString(R.string.textAddBtn),Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, getString(R.string.textAddBtn),Toast.LENGTH_SHORT).show()
+            val action = DetailFragmentDirections.actionDetailFragmentToNavigationCart(args.productId)
+            findNavController().navigate(action)
         }
 
     }

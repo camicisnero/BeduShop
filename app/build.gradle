@@ -10,6 +10,10 @@ plugins {
 android {
     compileSdk 31
 
+    viewBinding{
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "org.bedu.bedushop"
         minSdk 21
