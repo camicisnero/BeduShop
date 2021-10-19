@@ -12,15 +12,19 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import java.io.IOException
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import io.realm.Realm
 import okhttp3.*
 import org.bedu.bedushop.Classes.Product
 import org.bedu.bedushop.Adapters.ProductAdapter
+import org.bedu.bedushop.Adapters.ProductRAdapter
+import org.bedu.bedushop.Classes.ProductR
 import org.bedu.bedushop.R
 import java.lang.Exception
 
 class HomeFragment : Fragment() {
 
     private val url = "https://fakestoreapi.com/products"
+    private lateinit var products: List<ProductR>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,11 +73,16 @@ class HomeFragment : Fragment() {
     private fun setUpRecyclerView(){
         recyclerProducts?.setHasFixedSize(true)
         recyclerProducts?.layoutManager = LinearLayoutManager(activity)
-        getProducts(requireActivity())
+        //getProducts(requireActivity())
+        recyclerProducts?.adapter = ProductRAdapter(products)
+        recyclerProducts?.visibility = View.VISIBLE
+        progressBar?.visibility = View.GONE
 
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        val realm = Realm.getDefaultInstance()
+        products = realm.where(ProductR::class.java).findAll()
         setUpRecyclerView()
     }
 
