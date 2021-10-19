@@ -1,9 +1,8 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Fragments
 
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,8 +17,8 @@ import android.util.Patterns
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
+import org.bedu.bedushop.R
 import org.json.JSONObject
-import org.json.JSONStringer
 import java.io.IOException
 import java.lang.Exception
 import java.util.regex.Matcher

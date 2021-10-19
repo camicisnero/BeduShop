@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.io.IOException
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.*
-import org.json.JSONObject
+import org.bedu.bedushop.Classes.Product
+import org.bedu.bedushop.Adapters.ProductAdapter
+import org.bedu.bedushop.R
 import java.lang.Exception
 
 class HomeFragment : Fragment() {

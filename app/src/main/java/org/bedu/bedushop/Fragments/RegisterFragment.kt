@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.google.android.material.textfield.TextInputLayout
+import org.bedu.bedushop.R
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 

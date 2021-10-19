@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail.*
+import org.bedu.bedushop.R
 
 class DetailFragment : Fragment() {
 

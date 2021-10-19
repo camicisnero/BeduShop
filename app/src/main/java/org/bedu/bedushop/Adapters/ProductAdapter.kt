@@ -1,7 +1,5 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Adapters
 
-import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +9,8 @@ import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import org.bedu.bedushop.Classes.Product
+import org.bedu.bedushop.R
 
 class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 

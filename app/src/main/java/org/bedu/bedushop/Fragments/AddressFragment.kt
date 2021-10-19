@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Fragments
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -21,6 +21,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
+import org.bedu.bedushop.R
 import java.util.Locale
 
 class AddressFragment: BottomSheetDialogFragment(){
@@ -32,8 +33,6 @@ class AddressFragment: BottomSheetDialogFragment(){
     //Obeto que obtiene la localización
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
 
-    /*private var latitude = 19.3758498
-    private var longitude = -99.1454907*/
     private var latitude = 0.0
     private var longitude = 0.0
 
@@ -132,11 +131,13 @@ class AddressFragment: BottomSheetDialogFragment(){
                 val alertDialog: AlertDialog? = activity?.let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {
-                        setPositiveButton(R.string.ok,
+                        setPositiveButton(
+                            R.string.ok,
                             DialogInterface.OnClickListener { _, _ ->
                                 goToTurnLocation()
                             })
-                        setNegativeButton(R.string.cancel,
+                        setNegativeButton(
+                            R.string.cancel,
                             DialogInterface.OnClickListener { dialog, _ ->
                                 dialog.dismiss()
                             })

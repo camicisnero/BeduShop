@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Classes
 
 data class Product(
     val id:Int,
@@ -8,8 +8,4 @@ data class Product(
     val rating: Rating,
     val category:String,
     val image:String
-)
-class Rating(
-    val rate:Float,
-    val count:Int
 )

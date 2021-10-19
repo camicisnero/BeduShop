@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="org.bedu.bedushop.HomeFragment"
+        android:name="org.bedu.bedushop.Fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -20,17 +20,17 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="org.bedu.bedushop.CartFragment"
+        android:name="org.bedu.bedushop.Fragments.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="org.bedu.bedushop.ProfileFragment"
+        android:name="org.bedu.bedushop.Fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="org.bedu.bedushop.DetailFragment"
+        android:name="org.bedu.bedushop.Fragments.DetailFragment"
         android:label="DetailFragment" >
         <argument
             android:name="title"

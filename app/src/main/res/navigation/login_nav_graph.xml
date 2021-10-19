@@ -6,7 +6,7 @@
     app:startDestination="@id/logInFragment">
     <fragment
         android:id="@+id/logInFragment"
-        android:name="org.bedu.bedushop.LogInFragment"
+        android:name="org.bedu.bedushop.Fragments.LogInFragment"
         android:label="LogInFragment" >
         <action
             android:id="@+id/action_logInFragment_to_registerFragment"
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="org.bedu.bedushop.RegisterFragment"
+        android:name="org.bedu.bedushop.Fragments.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <activity
         android:id="@+id/homeActivity"
-        android:name="org.bedu.bedushop.HomeActivity"
+        android:name="org.bedu.bedushop.Activities.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
 </navigation>

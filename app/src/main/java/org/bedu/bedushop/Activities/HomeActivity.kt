@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Activities
 
 import android.content.Intent
 import android.net.Uri
@@ -9,10 +9,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.bedu.bedushop.R
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -40,10 +39,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.item_search->{
+            R.id.item_search ->{
                 Toast.makeText(this,getString(R.string.item_search_toast), Toast.LENGTH_SHORT).show()
             }
-            R.id.item_help->{
+            R.id.item_help ->{
                 val url:String = getString(R.string.item_help_link)
                 openWebPage(url)
             }

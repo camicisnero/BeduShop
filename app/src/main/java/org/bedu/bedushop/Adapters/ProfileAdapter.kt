@@ -1,4 +1,4 @@
-package org.bedu.bedushop
+package org.bedu.bedushop.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.bedu.bedushop.Classes.ItemsProfile
+import org.bedu.bedushop.R
 
 class ProfileAdapter(private val listProfile:List<ItemsProfile>,
-                    private val clicklistener: (Int) -> Unit): RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+                     private val clicklistener: (Int) -> Unit): RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
 
     class ViewHolder(view: View, clickAtPosition: (Int)->Unit): RecyclerView.ViewHolder(view){
         private var title = view.findViewById<TextView>(R.id.optionTitle)
