@@ -60,4 +60,5 @@
 
     <!-- Cart -->
     <string name="cartButtonText">Proceder al pago</string>
+    <string name="emptyCart">El carrito está vacío</string>
 </resources>

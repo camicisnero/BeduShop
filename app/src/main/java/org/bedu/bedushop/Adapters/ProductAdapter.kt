@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import org.bedu.bedushop.Classes.Product
+import org.bedu.bedushop.Fragments.HomeFragmentDirections
 import org.bedu.bedushop.R
 
 class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
