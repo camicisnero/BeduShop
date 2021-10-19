@@ -57,4 +57,7 @@
     <string name="ok">Encender</string>
     <string name="dialog_message">El GPS está apagado ¿Quiere encenderlo?</string>
     <string name="cancel">Cancelar</string>
+
+    <!-- Cart -->
+    <string name="cartButtonText">Proceder al pago</string>
 </resources>
