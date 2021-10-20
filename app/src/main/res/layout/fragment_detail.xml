@@ -109,6 +109,7 @@
             android:id="@+id/img_product"
             android:layout_width="200dp"
             android:layout_height="228dp"
+            android:transitionName="imgTransition"
             app:layout_constraintBottom_toTopOf="@+id/guideline13"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline11"

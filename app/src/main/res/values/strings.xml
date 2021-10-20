@@ -73,7 +73,7 @@
     <string name="buttonPayText">Pagar</string>
 
     <!--Successful Payment -->
-    <string name="thanksText">¡Gracias por tu compra</string>
+    <string name="thanksText">¡Gracias por tu compra!</string>
     <string name="textSuccessfulFragment">Recibirás tu paquete pronto</string>
     <string name="buttonGoMain">Ir al menú principal</string>
 

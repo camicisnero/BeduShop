@@ -74,6 +74,7 @@
             android:id="@+id/img_product"
             android:layout_width="64dp"
             android:layout_height="98dp"
+            android:transitionName="imgTransition"
             cardView:layout_constraintBottom_toTopOf="@+id/guideline9"
             cardView:layout_constraintEnd_toStartOf="@+id/guideline7"
             cardView:layout_constraintHorizontal_bias="0.521"

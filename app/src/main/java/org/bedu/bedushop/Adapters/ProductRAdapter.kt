@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import org.bedu.bedushop.Classes.Product
@@ -15,11 +16,12 @@ import org.bedu.bedushop.Fragments.HomeFragmentDirections
 import org.bedu.bedushop.R
 
 class ProductRAdapter(private val products:List<ProductR>): RecyclerView.Adapter<ProductRAdapter.ViewHolder>() {
-
+private lateinit var image:ImageView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_product,parent,false)
+        image = view.findViewById(R.id.img_product)
         return ViewHolder(view)
     }
 
@@ -31,9 +33,12 @@ class ProductRAdapter(private val products:List<ProductR>): RecyclerView.Adapter
             product.rate?: 0f, product.count ?: 0, getPriceQuota(product.price?:0f,6),product.id?:position
         )
 
-        holder.itemView.setOnClickListener(
-            Navigation.createNavigateOnClickListener(action)
-        )
+        val extras = FragmentNavigatorExtras(image to "imgTransition")
+
+        holder.itemView.setOnClickListener{
+            /*Navigation.createNavigateOnClickListener(action)*/
+            Navigation.findNavController(it).navigate(action, extras)
+        }
 
         holder.bind(product)
     }
