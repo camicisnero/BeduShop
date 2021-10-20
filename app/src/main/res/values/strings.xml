@@ -76,4 +76,10 @@
     <string name="thanksText">¡Gracias por tu compra</string>
     <string name="textSuccessfulFragment">Recibirás tu paquete pronto</string>
     <string name="buttonGoMain">Ir al menú principal</string>
+
+    <!-- Notifications -->
+    <string name="channelPayment">compras</string>
+    <string name="descriptionPayment">Notificaciones acerca de las compras realizadas</string>
+    <string name="simpleTitle">Compra Realizada</string>
+    <string name="simpleBody">Tu pedido llegará en una semana</string>
 </resources>
