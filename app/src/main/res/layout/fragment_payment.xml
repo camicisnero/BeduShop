@@ -28,7 +28,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paymentTitle"
-        tools:listitem="@layout/item_option_profile" />
+        tools:listitem="@layout/item_option_profile"
+        android:padding="10dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline17"
