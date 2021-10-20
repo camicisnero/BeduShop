@@ -2,21 +2,12 @@ package org.bedu.bedushop
 
 import android.app.Application
 import android.util.Log
-import android.view.View
-import android.widget.Toast
-import com.google.gson.Gson
-import com.google.gson.JsonArray
-import com.google.gson.reflect.TypeToken
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.*
-import org.bedu.bedushop.Adapters.ProductAdapter
-import org.bedu.bedushop.Classes.Product
 import org.bedu.bedushop.Classes.ProductR
 import org.json.JSONArray
 import java.io.IOException
-import java.lang.Error
 import java.lang.Exception
 
 class MainApp: Application() {

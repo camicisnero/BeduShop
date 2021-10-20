@@ -61,4 +61,19 @@
     <!-- Cart -->
     <string name="cartButtonText">Proceder al pago</string>
     <string name="emptyCart">El carrito está vacío</string>
+    
+    <!-- Payment -->
+    <string name="titleDataPayment">Datos de pago</string>
+    <string name="itemActLocation">Dirección actual</string>
+    <string name="subtitle">Resumen</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="shipping">Envío</string>
+    <string name="shippingPrice">$30.00</string>
+    <string name="total">Total</string>
+    <string name="buttonPayText">Pagar</string>
+
+    <!--Successful Payment -->
+    <string name="thanksText">¡Gracias por tu compra</string>
+    <string name="textSuccessfulFragment">Recibirás tu paquete pronto</string>
+    <string name="buttonGoMain">Ir al menú principal</string>
 </resources>

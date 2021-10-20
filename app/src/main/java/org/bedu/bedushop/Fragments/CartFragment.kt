@@ -1,19 +1,22 @@
 package org.bedu.bedushop.Fragments
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.realm.Realm
 import org.bedu.bedushop.Adapters.ProductCartAdapter
+import org.bedu.bedushop.Classes.ProductR
 import org.bedu.bedushop.R
 import org.bedu.bedushop.databinding.FragmentCartBinding
 
@@ -72,7 +75,25 @@ class CartFragment : Fragment() {
         //Inicio el recyclerView
         setUpRecyclerView()
 
+        btnPay.setOnClickListener{
+            val subtotal = getSubtotal()
+            products.clear()
+            val action = CartFragmentDirections.actionNavigationCartToPaymentFragment(subtotal)
+            findNavController().navigate(action)
+        }
+
         return view
+    }
+
+    private fun getSubtotal(): Float{
+        var subtotal = 0f
+        val realm = Realm.getDefaultInstance()
+        for (p in products) {
+            val productR = realm.where(ProductR::class.java).equalTo("id", p.first.toInt()).findFirst()
+            Log.d("ProductTile", "${productR?.title}  precio: ${productR?.price}")
+            subtotal += productR?.price?.times(p.second) ?: 0f
+        }
+        return subtotal
     }
 
     private fun changedVisibility(){
@@ -88,8 +109,8 @@ class CartFragment : Fragment() {
     }
 
     private fun getProducts(){
-        val all = preferences.all
-        for (data in all){
+        val allProducts = preferences.all
+        for (data in allProducts){
             products.add(Pair(data.key, data.value) as Pair<String, Int>)
         }
 
@@ -114,8 +135,8 @@ class CartFragment : Fragment() {
                         .apply()
                 }
             }
-            //Obtengo los productos luego del cambio
             products.clear()
+            //Obtengo los productos luego del cambio
             getProducts()
             //actualizo vistas
             changedVisibility()

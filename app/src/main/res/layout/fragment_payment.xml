@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Fragments.PaymentFragment">
+
+    <TextView
+        android:id="@+id/paymentTitle"
+        style="@style/TitlePaymentFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titleDataPayment"
+        app:layout_constraintBottom_toTopOf="@id/recyclerPayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPayment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentTitle"
+        tools:listitem="@layout/item_option_profile" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".5" />
+
+
+    <TextView
+        android:id="@+id/paymentSubtitle"
+        style="@style/TitlePaymentFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subtitle"
+        app:layout_constraintBottom_toTopOf="@+id/paymentSubtotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerPayment" />
+
+    <TextView
+        android:id="@+id/paymentSubtotal"
+        android:layout_width="0dp"
+        android:layout_height="19dp"
+        android:text="@string/subtotal"
+        app:layout_constraintBottom_toTopOf="@+id/shipping"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentSubtitle" />
+
+    <TextView
+        android:id="@+id/priceShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shippingPrice"
+        app:layout_constraintBaseline_toBaselineOf="@+id/shipping"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/paymentTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        android:textColor="@color/primaryColor"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shipping" />
+
+    <TextView
+        android:id="@+id/priceSubtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hola"
+        app:layout_constraintBaseline_toBaselineOf="@+id/paymentSubtotal"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/shipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shipping"
+        app:layout_constraintBottom_toTopOf="@+id/paymentTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentSubtotal" />
+
+    <TextView
+        android:id="@+id/priceTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryColor"
+        android:text="totalPrice"
+        app:layout_constraintBaseline_toBaselineOf="@+id/paymentTotal"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonPayText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentTotal" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

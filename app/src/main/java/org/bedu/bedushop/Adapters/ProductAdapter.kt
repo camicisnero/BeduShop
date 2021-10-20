@@ -27,7 +27,7 @@ class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<P
 
         val action = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
             product.title, product.price, product.description, product.image,
-            product.rating.rate, product.rating.count, getPriceQuota(product.price,6)
+            product.rating.rate, product.rating.count, getPriceQuota(product.price,6), position
         )
 
         holder.itemView.setOnClickListener(

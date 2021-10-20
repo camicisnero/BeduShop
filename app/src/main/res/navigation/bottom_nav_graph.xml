@@ -27,6 +27,9 @@
             android:name="productId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_navigation_cart_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_profile"
@@ -63,5 +66,26 @@
         <argument
             android:name="productId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="org.bedu.bedushop.Fragments.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <argument android:name="subtotal"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <action
+            android:id="@+id/action_paymentFragment_to_successfulPaymentFragment"
+            app:destination="@id/successfulPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successfulPaymentFragment"
+        android:name="org.bedu.bedushop.Fragments.SuccessfulPaymentFragment"
+        android:label="fragment_successful_payment"
+        tools:layout="@layout/fragment_successful_payment" >
+        <action
+            android:id="@+id/action_successfulPaymentFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 </navigation>
