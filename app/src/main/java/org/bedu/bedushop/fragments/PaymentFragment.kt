@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.fragment.findNavController
@@ -116,6 +117,7 @@ class PaymentFragment: Fragment() {
             .setSmallIcon(R.drawable.ic_notification_pay)
             .setContentTitle(getString(R.string.simpleTitle))
             .setContentText(getString(R.string.simpleBody))
+            .setColor(ContextCompat.getColor(requireContext(),R.color.secondaryColor))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
