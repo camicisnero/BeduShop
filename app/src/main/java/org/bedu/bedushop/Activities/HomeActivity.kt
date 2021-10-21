@@ -5,8 +5,12 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
@@ -31,6 +35,19 @@ class HomeActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         bottomNavigationView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.label) {
+                resources.getResourceEntryName(R.id.fragment_home),
+                resources.getResourceEntryName(R.id.fragment_cart),
+                resources.getResourceEntryName(R.id.fragment_profile) -> {
+                    changeBottomBarVisibility(bottomNavigationView, true)
+                }
+                else -> {
+                    changeBottomBarVisibility(bottomNavigationView)
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -64,5 +81,14 @@ class HomeActivity : AppCompatActivity() {
         super.onDestroy()
         val preferences = getSharedPreferences(CartFragment.PREFS_NAME, Context.MODE_PRIVATE)
         preferences.edit().clear().commit()
+    }
+
+    private fun changeBottomBarVisibility(bottomNav: BottomNavigationView, show : Boolean = false) {
+        val transition = Slide(Gravity.BOTTOM)
+        transition.duration = 500
+        transition.addTarget(bottomNav)
+        TransitionManager.beginDelayedTransition(findViewById(R.id.activity_home), transition)
+
+        bottomNav.visibility = if (show) View.VISIBLE else View.GONE
     }
 }
