@@ -3,9 +3,11 @@ package org.bedu.bedushop.Adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
@@ -17,10 +19,11 @@ import org.bedu.bedushop.R
 
 class ProductRAdapter(private val products:List<ProductR>): RecyclerView.Adapter<ProductRAdapter.ViewHolder>() {
 private lateinit var image:ImageView
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.item_product,parent,false)
+
+
+     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product,parent,false)
+
         image = view.findViewById(R.id.img_product)
         return ViewHolder(view)
     }
@@ -35,8 +38,9 @@ private lateinit var image:ImageView
 
         val extras = FragmentNavigatorExtras(image to "imgTransition")
 
+        holder.cardView.animation = AnimationUtils.loadAnimation (holder.itemView.context, R.anim.scale_to_up)
+
         holder.itemView.setOnClickListener{
-            /*Navigation.createNavigateOnClickListener(action)*/
             Navigation.findNavController(it).navigate(action, extras)
         }
 
@@ -53,7 +57,7 @@ private lateinit var image:ImageView
         private var valuation = view.findViewById<RatingBar>(R.id.rtg_valuation)
         private var calification = view.findViewById<TextView>(R.id.tv_calification)
         private var image = view.findViewById<ImageView>(R.id.img_product)
-
+        var cardView:CardView = view.findViewById(R.id.idCarView)
 
         fun bind(product: ProductR){
             title.text = product.title
