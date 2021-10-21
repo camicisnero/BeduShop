@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Fragments
+package org.bedu.bedushop.fragments
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -15,8 +15,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.Realm
-import org.bedu.bedushop.Adapters.ProductCartAdapter
-import org.bedu.bedushop.Classes.ProductR
+import org.bedu.bedushop.adapters.ProductCartAdapter
+import org.bedu.bedushop.classes.ProductR
 import org.bedu.bedushop.R
 import org.bedu.bedushop.databinding.FragmentCartBinding
 

@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Fragments
+package org.bedu.bedushop.fragments
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -21,7 +21,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.snackbar.Snackbar
 import org.bedu.bedushop.R
 import java.util.Locale
 

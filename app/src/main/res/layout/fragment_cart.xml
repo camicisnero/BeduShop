@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/fragment_cart"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.CartFragment">
+    tools:context=".fragments.CartFragment">
 
     <TextView
         android:id="@+id/emptyCart"

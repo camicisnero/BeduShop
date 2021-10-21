@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Fragments
+package org.bedu.bedushop.fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -103,7 +103,7 @@ class LogInFragment : Fragment() {
         return view
     }
 
-    private fun isValidEmail(target: CharSequence): Boolean {
+    fun isValidEmail(target: CharSequence): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
 

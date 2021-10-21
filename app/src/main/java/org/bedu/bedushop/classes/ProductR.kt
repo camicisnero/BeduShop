@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Classes
+package org.bedu.bedushop.classes
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey

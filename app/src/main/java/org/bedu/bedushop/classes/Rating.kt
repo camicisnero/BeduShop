@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Classes
+package org.bedu.bedushop.classes
 
 class Rating(
     val rate:Float,

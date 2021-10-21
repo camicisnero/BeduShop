@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Activities
+package org.bedu.bedushop.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

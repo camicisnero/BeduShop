@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Fragments.SuccessfulPaymentFragment">
+    tools:context=".fragments.SuccessfulPaymentFragment">
 
     <ImageView
         android:id="@+id/ivPackage"

@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Fragments
+package org.bedu.bedushop.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -14,10 +14,10 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.realm.Realm
 import okhttp3.*
-import org.bedu.bedushop.Classes.Product
-import org.bedu.bedushop.Adapters.ProductAdapter
-import org.bedu.bedushop.Adapters.ProductRAdapter
-import org.bedu.bedushop.Classes.ProductR
+import org.bedu.bedushop.classes.Product
+import org.bedu.bedushop.adapters.ProductAdapter
+import org.bedu.bedushop.adapters.ProductRAdapter
+import org.bedu.bedushop.classes.ProductR
 import org.bedu.bedushop.R
 import java.lang.Exception
 

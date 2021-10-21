@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Fragments
+package org.bedu.bedushop.fragments
 
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
@@ -7,22 +7,20 @@ import android.app.PendingIntent
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationCompat.getColor
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
-import org.bedu.bedushop.Activities.HomeActivity
-import org.bedu.bedushop.Adapters.ProfileAdapter
-import org.bedu.bedushop.Classes.ItemsProfile
+import org.bedu.bedushop.activities.HomeActivity
+import org.bedu.bedushop.adapters.ProfileAdapter
+import org.bedu.bedushop.classes.ItemsProfile
 import org.bedu.bedushop.R
 import org.bedu.bedushop.databinding.FragmentPaymentBinding
 

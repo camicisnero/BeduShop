@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Adapters
+package org.bedu.bedushop.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import io.realm.Realm
-import kotlinx.android.synthetic.main.item_option_profile.view.*
-import org.bedu.bedushop.Classes.ItemsProfile
-import org.bedu.bedushop.Classes.ProductR
+import org.bedu.bedushop.classes.ProductR
 import org.bedu.bedushop.R
 
 class ProductCartAdapter(private val products: MutableList<Pair<String, Int>>

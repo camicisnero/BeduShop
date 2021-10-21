@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Activities
+package org.bedu.bedushop.activities
 
 import android.content.Context
 import android.content.Intent
@@ -16,7 +16,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.bedu.bedushop.Fragments.CartFragment
+import org.bedu.bedushop.fragments.CartFragment
 import org.bedu.bedushop.R
 
 class HomeActivity : AppCompatActivity() {

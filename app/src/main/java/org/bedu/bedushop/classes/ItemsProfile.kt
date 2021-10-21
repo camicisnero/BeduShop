@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Classes
+package org.bedu.bedushop.classes
 
 class ItemsProfile (
     val title: Int,

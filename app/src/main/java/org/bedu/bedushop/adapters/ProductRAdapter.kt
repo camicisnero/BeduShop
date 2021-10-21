@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Adapters
+package org.bedu.bedushop.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,18 +7,20 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import org.bedu.bedushop.Classes.Product
-import org.bedu.bedushop.Fragments.HomeFragmentDirections
+import org.bedu.bedushop.classes.ProductR
+import org.bedu.bedushop.fragments.HomeFragmentDirections
 import org.bedu.bedushop.R
 
-class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
-
+class ProductRAdapter(private val products:List<ProductR>): RecyclerView.Adapter<ProductRAdapter.ViewHolder>() {
+private lateinit var image:ImageView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_product,parent,false)
+        image = view.findViewById(R.id.img_product)
         return ViewHolder(view)
     }
 
@@ -26,13 +28,16 @@ class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<P
         val product = products[position]
 
         val action = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
-            product.title, product.price, product.description, product.image,
-            product.rating.rate, product.rating.count, getPriceQuota(product.price,6), position
+            product.title ?: "title", product.price ?: 0f, product.description ?: "description", product.image?:"",
+            product.rate?: 0f, product.count ?: 0, getPriceQuota(product.price?:0f,6),product.id?:position
         )
 
-        holder.itemView.setOnClickListener(
-            Navigation.createNavigateOnClickListener(action)
-        )
+        val extras = FragmentNavigatorExtras(image to "imgTransition")
+
+        holder.itemView.setOnClickListener{
+            /*Navigation.createNavigateOnClickListener(action)*/
+            Navigation.findNavController(it).navigate(action, extras)
+        }
 
         holder.bind(product)
     }
@@ -49,11 +54,11 @@ class ProductAdapter(private val products:List<Product>): RecyclerView.Adapter<P
         private var image = view.findViewById<ImageView>(R.id.img_product)
 
 
-        fun bind(product: Product){
+        fun bind(product: ProductR){
             title.text = product.title
             price.text = (product.price).toString()
-            valuation.rating = product.rating.rate
-            calification.text = product.rating.count.toString()
+            valuation.rating = product.rate?: 0f
+            calification.text = product.count.toString()
             Picasso.get().load(product.image).into(image)
         }
     }

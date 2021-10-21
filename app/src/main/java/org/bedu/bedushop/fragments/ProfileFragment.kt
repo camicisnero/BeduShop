@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Fragments
+package org.bedu.bedushop.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -13,8 +13,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_profile.*
 import okhttp3.*
-import org.bedu.bedushop.Classes.ItemsProfile
-import org.bedu.bedushop.Adapters.ProfileAdapter
+import org.bedu.bedushop.classes.ItemsProfile
+import org.bedu.bedushop.adapters.ProfileAdapter
 import org.bedu.bedushop.R
 import org.json.JSONObject
 import java.io.IOException

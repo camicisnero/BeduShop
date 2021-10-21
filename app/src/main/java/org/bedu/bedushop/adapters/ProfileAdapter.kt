@@ -1,4 +1,4 @@
-package org.bedu.bedushop.Adapters
+package org.bedu.bedushop.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import org.bedu.bedushop.Classes.ItemsProfile
+import org.bedu.bedushop.classes.ItemsProfile
 import org.bedu.bedushop.R
 
 class ProfileAdapter(private val listProfile:List<ItemsProfile>,

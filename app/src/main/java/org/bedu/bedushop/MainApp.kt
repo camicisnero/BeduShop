@@ -5,7 +5,7 @@ import android.util.Log
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import okhttp3.*
-import org.bedu.bedushop.Classes.ProductR
+import org.bedu.bedushop.classes.ProductR
 import org.json.JSONArray
 import java.io.IOException
 import java.lang.Exception
