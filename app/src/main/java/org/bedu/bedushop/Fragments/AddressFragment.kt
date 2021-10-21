@@ -21,6 +21,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import org.bedu.bedushop.R
 import java.util.Locale
 
@@ -84,21 +85,26 @@ class AddressFragment: BottomSheetDialogFragment(){
 
                 Thread{
                     Runnable {
-                        Log.e("GPS", "Enter thread")
+                        //Log.d("GPS", "Enter thread")
                         try {
-                        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
-                        if (addresses.size > 0){
-                            val addres = addresses[0]
-                            activity?.runOnUiThread {
-                                tvActualLocation.text = "${addres.getAddressLine(0)} ${addres.locality}"
+                            if (isLocationEnabled()) {
+                                val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+                                if (addresses.size > 0) {
+                                    val addres = addresses[0]
+                                    activity?.runOnUiThread {
+                                        tvActualLocation.text =
+                                            "${addres.getAddressLine(0)} ${addres.locality}"
+                                    }
+                                } else {
+                                    activity?.runOnUiThread {
+                                        showToast(R.string.locationNotFound)
+                                    }
+                                }
                             }
-                        } else {
-                            activity?.runOnUiThread {showToast("Ubicación no encontrada, intente nuevamente")}
-                        }
 
                         }catch (e: Exception){
                             e.printStackTrace()
-                            showToast("Ups... Algo salió mal")
+                            showToast(R.string.fatalError)
                         }
                     }.run()
                 }.start()
@@ -108,8 +114,8 @@ class AddressFragment: BottomSheetDialogFragment(){
         return view
     }
 
-    private fun showToast(msj: String) {
-        Toast.makeText(requireContext(), msj, Toast.LENGTH_SHORT).show()
+    private fun showToast(id: Int) {
+        Toast.makeText(requireContext(), id , Toast.LENGTH_SHORT).show()
     }
 
     @SuppressLint("MissingPermission")
@@ -123,7 +129,7 @@ class AddressFragment: BottomSheetDialogFragment(){
                         latitude = location.latitude
                         longitude = location.longitude
                     } else {
-                        Toast.makeText(requireContext(), "No se encontró dirección", Toast.LENGTH_SHORT).show()
+                        Log.d("Location","No se encontró dirección")
                     }
 
                 }
@@ -159,7 +165,7 @@ class AddressFragment: BottomSheetDialogFragment(){
     }
 
     private fun goToTurnLocation(){
-        Toast.makeText(requireActivity(), "Debes prender el servicio de GPS", Toast.LENGTH_LONG).show()
+        //Toast.makeText(requireActivity(), "Debes prender el servicio de GPS", Toast.LENGTH_LONG).show()
         val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
         startActivity(intent)
     }

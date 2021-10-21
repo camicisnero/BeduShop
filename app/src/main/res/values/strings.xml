@@ -49,6 +49,8 @@
     <string name="iconOption">icono de la opcion</string>
     <string name="iconNext">icono para avanzar</string>
     <string name="titleOption">Titulo</string>
+
+    <!--Address-->
     <string name="addresFragmentMainText">Agregar dirección</string>
     <string name="addresFragmentSubText">Ubicación Actual</string>
     <string name="addresFragmentButtonText">Actualizar</string>
@@ -57,6 +59,8 @@
     <string name="ok">Encender</string>
     <string name="dialog_message">El GPS está apagado ¿Quiere encenderlo?</string>
     <string name="cancel">Cancelar</string>
+    <string name="locationNotFound">Ubicación no encontrada, intente nuevamente</string>
+    <string name="fatalError">Ups... Algo salió mal</string>
 
     <!-- Cart -->
     <string name="cartButtonText">Proceder al pago</string>
