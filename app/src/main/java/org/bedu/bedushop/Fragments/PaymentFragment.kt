@@ -7,14 +7,13 @@ import android.app.PendingIntent
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationCompat.getColor
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.fragment.findNavController
@@ -118,6 +117,7 @@ class PaymentFragment: Fragment() {
             .setSmallIcon(R.drawable.ic_notification_pay)
             .setContentTitle(getString(R.string.simpleTitle))
             .setContentText(getString(R.string.simpleBody))
+            .setColor(ContextCompat.getColor(requireContext(),R.color.secondaryColor))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
