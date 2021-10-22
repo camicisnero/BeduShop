@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/activity_home.xml" value="0.19701086956521738" />
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_detail.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_home.xml" value="0.19701086956521738" />
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_profile.xml" value="0.38948069241011984" />
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/item_cart_product.xml" value="0.2140625" />
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/item_option_profile.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/iLatina/AndroidStudioProjects/BeduShop/app/src/main/res/layout/item_product.xml" value="0.19701086956521738" />
         <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/activity_home.xml" value="0.2682051282051282" />
         <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_address.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_detail.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_home.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_payment.xml" value="0.18" />
         <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_profile.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/ruben/AndroidStudioProjects/BeduShop/app/src/main/res/layout/fragment_successful_payment.xml" value="0.27291666666666664" />
@@ -42,7 +48,6 @@
         <entry key="app/src/main/res/layout/fragment_log_in.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/item_option_profile.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.33" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>

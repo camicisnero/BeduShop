@@ -1,15 +1,14 @@
 package org.bedu.bedushop.fragments
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateInterpolator
 import android.widget.*
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.transition.Fade
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail.*
 import org.bedu.bedushop.R
@@ -32,14 +31,15 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
-        sharedElementEnterTransition = Fade().apply{
-            duration = 300
-            interpolator = AccelerateInterpolator()
-        }
-        sharedElementReturnTransition = Fade().apply{
-            duration = 300
-            interpolator = AccelerateInterpolator()
-        }
+
+        val image = view.findViewById(R.id.img_product) as ImageView
+
+        image.transitionName = args.productId.toString()
+
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+        sharedElementReturnTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.slide_bottom)
+
         return view
     }
 

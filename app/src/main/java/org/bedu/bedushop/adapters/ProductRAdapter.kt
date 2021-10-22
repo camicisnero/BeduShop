@@ -35,7 +35,7 @@ private lateinit var image:ImageView
             product.rate?: 0f, product.count ?: 0, getPriceQuota(product.price?:0f,6),product.id?:position
         )
 
-        val extras = FragmentNavigatorExtras(image to "imgTransition")
+        val extras = FragmentNavigatorExtras(image to product.id.toString())
 
         holder.cardView.animation = AnimationUtils.loadAnimation (holder.itemView.context, R.anim.scale_to_up)
 
@@ -56,9 +56,10 @@ private lateinit var image:ImageView
         private var valuation = view.findViewById<RatingBar>(R.id.rtg_valuation)
         private var calification = view.findViewById<TextView>(R.id.tv_calification)
         private var image = view.findViewById<ImageView>(R.id.img_product)
-        var cardView:CardView = view.findViewById(R.id.idCarView)
+        var cardView:CardView = view.findViewById(R.id.cardView)
 
         fun bind(product: ProductR){
+            image.transitionName = product.id.toString()
             title.text = product.title
             price.text = (product.price).toString()
             valuation.rating = product.rate?: 0f
