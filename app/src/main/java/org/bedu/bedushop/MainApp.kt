@@ -68,6 +68,7 @@ class MainApp: Application() {
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
+                        getProducts()
                     }
                 }
             })
