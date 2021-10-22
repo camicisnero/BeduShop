@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +31,7 @@ class ProfileFragment : Fragment() {
     private lateinit var userAvatar : ShapeableImageView
     private lateinit var username : TextView
     private lateinit var userEmail : TextView
-
+    private lateinit var btnLogout : Button
     private val listProfile = listOf(
         ItemsProfile(
             R.string.optionDirections,
@@ -71,6 +73,13 @@ class ProfileFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        btnLogout = view.findViewById(R.id.btnLogout)
+
+        btnLogout.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_profile_to_login_nav_graph, null, null)
+        }
+    }
     private fun setListener(){
         listener = {
             if (it == R.string.optionDirections) {

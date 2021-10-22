@@ -32,7 +32,13 @@
         android:id="@+id/navigation_profile"
         android:name="org.bedu.bedushop.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+
+        <action
+            android:id="@+id/action_navigation_profile_to_login_nav_graph"
+            app:destination="@id/login_nav_graph" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="org.bedu.bedushop.fragments.DetailFragment"
@@ -85,4 +91,5 @@
             android:id="@+id/action_successfulPaymentFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <include app:graph="@navigation/login_nav_graph" />
 </navigation>
