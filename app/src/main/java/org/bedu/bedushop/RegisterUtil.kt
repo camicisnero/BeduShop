@@ -1,7 +1,5 @@
 package org.bedu.bedushop
 
-import android.util.Log
-import android.util.Patterns
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
