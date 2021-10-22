@@ -68,6 +68,11 @@ private lateinit var image:ImageView
         }
     }
 
+    /**
+     * Opens webpage url
+     * @param price an absolute URL giving the webpage location
+     * @param quota
+     */
     private fun getPriceQuota(price:Float, quota:Int):Float{
         return price/quota
     }

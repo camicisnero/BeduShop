@@ -88,6 +88,9 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    /**
+     * Gets user data with API Request
+     */
     private fun dataRequest(view: View) {
         val okHttpClient = OkHttpClient()
 

@@ -113,7 +113,6 @@ class RegisterFragment : Fragment() {
         return view
     }
 
-    //Devuelve verdadero si ningún campo es válido y falso si alguno lo es
     private fun validateAllFalse(username: EditText?, email: EditText?, phone: EditText?, pass: EditText?): Boolean {
         if(username?.text.toString().isBlank() && !isValidEmail(email?.text.toString()) && !isValidPhone(phone?.text.toString()) && !isValidPassword(pass?.text.toString())) {
             return true

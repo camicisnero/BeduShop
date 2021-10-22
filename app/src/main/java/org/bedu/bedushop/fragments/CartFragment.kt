@@ -21,42 +21,35 @@ import org.bedu.bedushop.R
 import org.bedu.bedushop.databinding.FragmentCartBinding
 
 class CartFragment : Fragment() {
-    //SafeArgs
+
     private val args: CartFragmentArgs by navArgs()
-    //binging
+
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!
-    //view
     private lateinit var tvEmptyCart: TextView
     private lateinit var btnPay: Button
     private lateinit var recyclerView : RecyclerView
-    //Data
     private val products = mutableListOf<Pair<String, Int>>()
 
-    //preferences
     companion object{
         val PREFS_NAME = "org.bedu.products"
     }
     private lateinit var preferences: SharedPreferences
 
-    //Listener
     private lateinit var listener: (String, Int) -> Unit
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentCartBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        //Binding with vistas
         tvEmptyCart = binding.emptyCart
         tvEmptyCart.visibility = View.GONE
         btnPay = binding.btnPay
         recyclerView = binding.recyclerCart
 
-        //Obtengo sharedPreferences
         preferences = requireActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
         //Si obtengo un argumento vengo del fragment detail y debo añadirlo o sumarlo en su defecto
@@ -68,11 +61,8 @@ class CartFragment : Fragment() {
                 .apply()
         }
 
-        //Obtengo los productos
         getProducts()
-        //Si el tamaño es cero, vengo de la navegación inferior o bien se hizo la compra
         changedVisibility()
-        //Inicio el recyclerView
         setUpRecyclerView()
 
         btnPay.setOnClickListener{
@@ -96,6 +86,9 @@ class CartFragment : Fragment() {
         return subtotal
     }
 
+    /**
+     * Changes visibility if the cart is empty
+     */
     private fun changedVisibility(){
         if (products.size>0){
             tvEmptyCart.visibility = View.GONE
@@ -108,6 +101,9 @@ class CartFragment : Fragment() {
         }
     }
 
+    /**
+     * Gets products from DB
+     */
     private fun getProducts(){
         val allProducts = preferences.all
         for (data in allProducts){

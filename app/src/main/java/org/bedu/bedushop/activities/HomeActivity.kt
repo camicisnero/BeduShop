@@ -69,6 +69,10 @@ class HomeActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Opens webpage url
+     * @param  url an absolute URL giving the webpage location
+     */
     private fun openWebPage(url: String) {
         val webpage: Uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webpage)
@@ -83,6 +87,10 @@ class HomeActivity : AppCompatActivity() {
         preferences.edit().clear().commit()
     }
 
+    /**
+     * Opens webpage url
+     * @param  url an absolute URL giving the webpage location
+     */
     private fun changeBottomBarVisibility(bottomNav: BottomNavigationView, show : Boolean = false) {
         val transition = Slide(Gravity.BOTTOM)
         transition.duration = 500

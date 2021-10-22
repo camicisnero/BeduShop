@@ -73,15 +73,12 @@ class AddressFragment: BottomSheetDialogFragment(){
 
         listView.adapter = itemsAdapter
 
-
         close.setOnClickListener {
             dismiss()
         }
-
         btnUpdateLocation.setOnClickListener {
                 getLocation()
                 val geocoder = Geocoder(requireContext(), Locale.getDefault())
-
                 Thread{
                     Runnable {
                         //Log.d("GPS", "Enter thread")
@@ -117,10 +114,13 @@ class AddressFragment: BottomSheetDialogFragment(){
         Toast.makeText(requireContext(), id , Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * Gets GPS location
+     */
     @SuppressLint("MissingPermission")
     private fun getLocation() {
-        if (checkPermissions()) { //verificamos si tenemos permisos
-            if (isLocationEnabled()) { //localizamos sólo si el GPS está encendido
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
 
                 mFusedLocationClient.lastLocation.addOnSuccessListener(requireActivity()) { location ->
 
@@ -149,22 +149,18 @@ class AddressFragment: BottomSheetDialogFragment(){
                     }
                     // Set other dialog properties
                     builder?.setMessage(R.string.dialog_message)
-                    //.setTitle(R.string.dialog_title)
 
                     // Create the AlertDialog
                     builder.create()
                 }
-
                 alertDialog?.show()
             }
         } else{
-            //si no se tiene permiso, pedirlo
             requestPermissions()
         }
     }
 
     private fun goToTurnLocation(){
-        //Toast.makeText(requireActivity(), "Debes prender el servicio de GPS", Toast.LENGTH_LONG).show()
         val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
         startActivity(intent)
     }
@@ -174,7 +170,9 @@ class AddressFragment: BottomSheetDialogFragment(){
         return ActivityCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED
     }
 
-    //Pedir los permisos requeridos para que funcione la localización
+    /**
+     * Asks permissions
+     */
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(
             requireActivity(),
@@ -183,13 +181,15 @@ class AddressFragment: BottomSheetDialogFragment(){
         )
     }
 
+    /**
+     * Verifies if the location is enabled
+     */
     private fun isLocationEnabled(): Boolean {
         var locationManager: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
             LocationManager.NETWORK_PROVIDER
         )
     }
-
 
     private fun checkPermissions(): Boolean {
         if ( checkGranted(Manifest.permission.ACCESS_COARSE_LOCATION) &&

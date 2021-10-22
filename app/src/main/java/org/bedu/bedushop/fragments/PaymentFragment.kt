@@ -65,7 +65,7 @@ class PaymentFragment: Fragment() {
         binding.priceSubtotal.text = args.subtotal.toString()
         binding.priceTotal.text = (args.subtotal+ shippingPrice).toString()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {/*se realiza una comprabación para los dispositivos con SO igual o mayor a oreo*/
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setNotificationChannel()
         }
         binding.buttonPay.setOnClickListener{
@@ -89,7 +89,9 @@ class PaymentFragment: Fragment() {
         recyclerPayment?.adapter = mAdapter
     }
 
-    /*funcion que crea el canal de notificación*/
+    /**
+     * Creates notification channel
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setNotificationChannel(){
         val name = getString(R.string.channelPayment)
@@ -104,7 +106,9 @@ class PaymentFragment: Fragment() {
         notificationManager.createNotificationChannel(channel)
     }
 
-    /*función que lanza las notificaciones*/
+    /**
+     * Launches notificacion
+     */
     @RequiresApi(Build.VERSION_CODES.S)
     private fun paymetNotification(){
         val pendingIntent: PendingIntent = NavDeepLinkBuilder(requireContext())

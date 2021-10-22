@@ -116,6 +116,9 @@ class LogInFragment : Fragment() {
         return matcher.matches()
     }
 
+    /**
+     * Login Okhttp Request api
+     */
     private fun loginRequest(email: String, password: String, view: View) {
         val okHttpClient = OkHttpClient()
 

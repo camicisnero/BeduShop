@@ -37,6 +37,7 @@ class MainApp: Application() {
             .enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     Log.e("API", e.toString())
+                    getProducts()
                 }
 
                 override fun onResponse(call: Call, response: Response) {

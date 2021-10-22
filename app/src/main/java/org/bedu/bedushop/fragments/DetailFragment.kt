@@ -38,7 +38,6 @@ class DetailFragment : Fragment() {
 
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
 
-        sharedElementReturnTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.slide_bottom)
 
         return view
     }
@@ -74,7 +73,6 @@ class DetailFragment : Fragment() {
         txtPriceCuotaProducto.text = "%.2f".format(quota)
 
         btn_add.setOnClickListener {
-            //Toast.makeText(activity, getString(R.string.textAddBtn),Toast.LENGTH_SHORT).show()
             val action = DetailFragmentDirections.actionDetailFragmentToNavigationCart(args.productId)
             findNavController().navigate(action)
         }
