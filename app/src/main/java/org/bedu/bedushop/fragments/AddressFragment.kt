@@ -92,7 +92,7 @@ class AddressFragment: BottomSheetDialogFragment(){
                                     val addres = addresses[0]
                                     activity?.runOnUiThread {
                                         tvActualLocation.text =
-                                            "${addres.getAddressLine(0)} ${addres.locality}"
+                                            "${addres.getAddressLine(0)} ${addres.locality?:""}"
                                     }
                                 } else {
                                     activity?.runOnUiThread {
